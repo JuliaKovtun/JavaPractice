@@ -3,8 +3,8 @@ package Task_3;
 public class Task_3 {
     public static void main(String[] args) {
 
-        int[] array1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        char[] array2 = {'H', 'e', 'l', 'l', 'o'};
+        final int[] array1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        final char[] array2 = {'H', 'e', 'l', 'l', 'o'};
 
         String mixedStr = "";
         String tmp;
