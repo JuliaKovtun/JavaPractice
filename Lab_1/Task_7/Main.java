@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Your name is " + user.getFirstName() + " " + user.getLastName());
         System.out.println("You are " + user.getAge() + " years old. Your email is " + user.getEmail());
 
-        User user2 = new User();
+        final User user2 = new User();
         System.out.println(user.equals(user2));
     }
 

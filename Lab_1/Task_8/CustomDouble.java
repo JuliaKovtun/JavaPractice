@@ -6,7 +6,13 @@ public class CustomDouble {
     private int i;
     private double d;
 
-    public CustomDouble (final int i, final double d) {this.i = i; this.d = d;}
+    public CustomDouble (final int i, final double d) {
+        this.i = i;
+        if(d >= 0.0 && d < 1)
+            this.d = d;
+        else
+            this.d = d % 1;
+    }
 
     public int getI() {
         return i;
@@ -21,22 +27,25 @@ public class CustomDouble {
     }
 
     public void setD(final double d) {
-        this.d = d;
+        if(d >= 0.0 && d < 1)
+            this.d = d;
+        else
+            this.d = d % 1;
     }
 
-    public CustomDouble plus(CustomDouble c) {
+    public CustomDouble plus(final CustomDouble c) {
         return new CustomDouble(i + c.i, d + c.d);
     }
 
-    public CustomDouble minus(CustomDouble c) { return new CustomDouble(i - c.i, d - c.d); }
+    public CustomDouble minus(final CustomDouble c) { return new CustomDouble(i - c.i, d - c.d); }
 
-    public boolean moreThan(CustomDouble c) {
+    public boolean moreThan(final CustomDouble c) {
         return (i > c.i && d > c.d) ||
                 (i > c.i && d >= c.d) ||
                 (i >= c.i && d > c.d);
     }
 
-    public boolean lessThan(CustomDouble c) {
+    public boolean lessThan(final CustomDouble c) {
         return (i < c.i && d < c.d) ||
                 (i < c.i && d <= c.d) ||
                 (i <= c.i && d < c.d);
