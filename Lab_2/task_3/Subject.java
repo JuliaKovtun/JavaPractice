@@ -9,13 +9,10 @@ public class Subject {
         this.mark = mark;
     }
 
-    public Subject(final String name){
-        this.name = name;
-    }
+    public Subject(final String name){ this.name = name; }
 
     public void setMark(final Mark mark) { this.mark = mark; }
     public void setName(final String name) { this.name = name; }
-
     public Mark getMark() { return mark; }
     public String getName() { return name; }
 

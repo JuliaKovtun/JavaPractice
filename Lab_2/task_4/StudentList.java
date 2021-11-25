@@ -9,7 +9,6 @@ import task_3.Student;
 import task_3.Mark;
 import task_3.Subject;
 
-
 public class StudentList {
     private List<Student> students;
 
@@ -18,13 +17,12 @@ public class StudentList {
         students = new ArrayList<Student>();
     }
 
-    public void addStudent(final Student student){
-        students.add(student);
-    }
+    public void addStudent(final Student student){ students.add(student); }
 
+//      Додає предмет всім студентам
     public void addSubjectToAll(final String subject){
         for(Student student: students){
-            student.AddSubject(subject);
+            student.addSubject(subject);
         }
     }
 
@@ -34,16 +32,13 @@ public class StudentList {
         }
     }
 
-//    Повертає найкращого студента
-    public Student highestAverageMark()
-    {
+//    Повертає студента з найвищим середнім балом
+    public Student highestAverageMark() {
         Student best_student = null;
-
         if(students.size()>0) {
             best_student = students.get(0);
             for (final Student student : students) {
-                if(best_student.AverageValueAllSubject() < student.AverageValueAllSubject())
-                {
+                if(best_student.averageValueAllSubject() < student.averageValueAllSubject()) {
                     best_student = student;
                 }
             }
@@ -53,11 +48,9 @@ public class StudentList {
 
 //    Map де ключем буде унікальний ідентифікатор, а значенням
 //- оцінки із заданого предмету
-    public Map<Integer, Mark> map(final String subject_name)
-    {
+    public Map<Integer, Mark> map(final String subject_name) {
         final Map<Integer, Mark> result = new HashMap<>();
         Subject subject = null;
-
         for (final Student student : students) {
             subject = student.findSubject(subject_name);
             if(subject!= null) {
@@ -66,6 +59,4 @@ public class StudentList {
         }
         return result;
     }
-
-
 }

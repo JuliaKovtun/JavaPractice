@@ -25,37 +25,34 @@ public class Student {
     public void setName(final String name) { this.name = name; }
     public String getName() { return name; }
 
-    public void AddSubject(final String subject_name)
-    {
-        subjects.add(new Subject(subject_name));
-    }
-    public void AddSubject(final Subject subject)
+    public void addSubject(final String subject) { subjects.add(new Subject(subject)); }
+    public void addSubject(final Subject subject)
     {
         subjects.add(subject);
     }
 
-    public Subject findSubject(final String subject_name){
+    public Subject findSubject(final String subjectName){
         for (final Subject subject : subjects) {
-            if (subject.getName().equals(subject_name)) {
+            if (subject.getName().equals(subjectName)) {
                 return subject;
             }
         }
         return null;
     }
 
-// Додає оцінку
-    public void AddMark(final String subject_name, final int value)
+//      Додає оцінку
+    public void AddMark(final String subjectName, final int value)
     {
-        Subject find_subject = findSubject(subject_name);
-        if(find_subject  == null) {
-            find_subject = new Subject(subject_name);
-            AddSubject(find_subject);
+        Subject subject = findSubject(subjectName);
+        if(subject  == null) {
+            subject = new Subject(subjectName);
+            addSubject(subject);
         }
-        find_subject.setMark(new Mark(value));
+        subject.setMark(new Mark(value));
     }
 
-//    Рахує середнє значення оцінок студента
-    public double AverageValueAllSubject()
+//      Рахує середнє значення оцінок студента
+    public double averageValueAllSubject()
     {
         double result=0;
         if (subjects.size()>0)
@@ -69,7 +66,7 @@ public class Student {
         return result;
     }
 
-// Повертає всі оцінки студента
+//      Повертає всі оцінки студента
     public void getMarks() {
         for(final Subject subject: subjects){
             System.out.print(subject.getMark().getValue() + "\t");
@@ -81,9 +78,4 @@ public class Student {
         return name + " "  + id + '\n'+
                 subjects.toString() ;
     }
-//
-//    @Override
-//    public String toString() {
-//        return "Student: " + name + subject;
-//    }
 }
