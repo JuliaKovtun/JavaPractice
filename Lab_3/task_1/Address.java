@@ -12,4 +12,10 @@ public class Address {
     }
 
     public String getAddress(){return this.address;}
+
+    @Override
+    public String toString() {
+        return "Address: " +
+                address;
+    }
 }

@@ -1,8 +1,8 @@
 package task_1;
 
 public class User {
-    public String firstName;
-    public String lastName;
+    private String firstName;
+    private String lastName;
     private int age;
     private Address address;
     private String email;
@@ -23,6 +23,19 @@ public class User {
         }
 
     }
+
+    public void setLastName(final String lastName) { this.lastName = lastName; }
+    public String getLastName(){ return this.lastName; }
+    public void setFirstName(final String firstName) { this.firstName = firstName; }
+    public String getFirstName(){ return this.firstName; }
+    public void setAge(final int age) { this.age = age; }
+    public int getAge(){return this.age; }
+    public void setAddress(final Address address) { this.address = address; }
+    public Address getAddress(){ return this.address; }
+    public void setEmail(final String email) { this.email = email; }
+    public String getEmail(){ return this.email; }
+
+
 
     public void validate(final String firstName, final String lastName,
                          final int age, final Address address,
@@ -48,7 +61,6 @@ public class User {
             valid = false;
             throw new UncheckedException("Email is empty", StatusCode.ERROR_500);
         }
-//        return valid;
     }
 
 }
