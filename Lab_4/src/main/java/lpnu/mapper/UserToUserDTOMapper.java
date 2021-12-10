@@ -12,7 +12,7 @@ public class UserToUserDTOMapper {
         user.setId(userDTO.getId());
         user.setName(userDTO.getName());
         user.setEmail(userDTO.getEmail());
-
+        user.setRole(userDTO.getRole());
         return user;
     }
 
@@ -22,7 +22,7 @@ public class UserToUserDTOMapper {
         userDTO.setId(user.getId());
         userDTO.setName(user.getName());
         userDTO.setEmail(user.getEmail());
-
+        userDTO.setRole(user.getRole());
         return userDTO;
     }
 }

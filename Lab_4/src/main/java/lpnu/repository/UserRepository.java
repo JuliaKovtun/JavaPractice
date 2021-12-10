@@ -3,6 +3,7 @@ import lpnu.entity.User;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class UserRepository {
@@ -24,16 +25,23 @@ public class UserRepository {
         user.setId(id);
         id++;
         users.add(user);
-        System.out.println("");
         return user;
     }
 
     public User updateUser(User user){
-        return null;
+        final User savedUser = getUserByID(user.getId());
+
+        savedUser.setName(user.getName());
+        savedUser.setEmail(user.getEmail());
+        savedUser.setRole(user.getRole());
+        return savedUser;
     }
 
     public void deleteUserById(long id) {
-        System.out.println("");
+        users = users.stream()
+                .filter(e -> e.getId() != id)
+                .collect(Collectors.toList());
+
     }
 
 }

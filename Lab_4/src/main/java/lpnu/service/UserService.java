@@ -1,7 +1,6 @@
 package lpnu.service;
 
 import lpnu.dto.UserDTO;
-import lpnu.entity.User;
 import java.util.List;
 
 public interface UserService {

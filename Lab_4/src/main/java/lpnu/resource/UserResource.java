@@ -1,18 +1,17 @@
 package lpnu.resource;
 
 import lpnu.dto.UserDTO;
-import lpnu.entity.User;
 import lpnu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class UserController {
+@RequestMapping("/api/v1")
+public class UserResource {
 
     @Autowired
     private UserService userService;
@@ -29,14 +28,14 @@ public class UserController {
 
 
     @PostMapping("/users")
-    public UserDTO saveUser(@RequestBody UserDTO user) {
-        return userService.saveUser(user);
+    public UserDTO saveUser(@RequestBody final UserDTO userDTO) {
+       return userService.saveUser(userDTO);
     }
 
 
     @PutMapping("/users")
-    public UserDTO updateUser(@RequestBody UserDTO user) {
-        return userService.updateUser(user);
+    public UserDTO updateUser(@RequestBody final UserDTO userDTO) {
+       return userService.updateUser(userDTO);
     }
 
 

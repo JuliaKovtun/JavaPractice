@@ -41,12 +41,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO updateUser(UserDTO userDTO){
-        return null;
+        final User user = userMapper.toEntity(userDTO);
+        return userMapper.toDTO(userRepository.updateUser(user));
     }
 
     @Override
     public void deleteUserById(long id) {
-        System.out.println("");
+        userRepository.deleteUserById(id);
     }
 
 
